@@ -1,37 +1,87 @@
 import Link from "next/link";
+import AssignmentsTopBar from "./AssignmentsTopBar";
+import { ListGroup, ListGroupItem, Row, Col } from "react-bootstrap";
+import { BsGripVertical } from "react-icons/bs";
+import { MdOutlineAssignment } from "react-icons/md";
+import AssignmentGroupCtrlBtns from "./AssignmentGroupCtrlBtns";
+import AssignmentCtrlBtns from "./AssignmentCtrlBtns";
 
 export default function Assignments() {
-    return (
-        <div id="wd-assignments">
-            <input placeholder="Search for Assignments"
-                id="wd-search-assignment" /> &nbsp;
-            <button id="wd-add-assignment-group">+ Group</button> &nbsp;
-            <button id="wd-add-assignment">+ Assignment</button>
-            <h3 id="wd-assignments-title">
-                ASSIGNMENTS 40% of Total <button>+</button> </h3>
-            <ul id="wd-assignment-list">
-                <li className="wd-assignment-list-item">
-                    <Link href="/courses/CS1234/assignments/123"
-                        className="wd-assignment-link">
-                        A1 - ENV + HTML
-                    </Link> <br />
-                    Multiple Modules | <b>Not available until</b> May 6 at 12:00am | <b>Due</b> May 13 at 11:59pm | 100pts
-                </li>
-                <li className="wd-assignment-list-item">
-                    <Link href="/courses/CS1234/assignments/124"
-                        className="wd-assignment-link">
-                        A2 - CSS + BOOTSTRAP
-                    </Link> <br />
-                    Multiple Modules | <b>Not available until</b> May 13 at 12:00am | <b>Due</b> May 20 at 11:59pm | 100pts
-                </li>
-                <li className="wd-assignment-list-item">
-                    <Link href="/courses/CS1234/assignments/125"
-                        className="wd-assignment-link">
-                        A3 - JAVASCRIPT + REACT
-                    </Link> <br />
-                    Multiple Modules | <b>Not available until</b> May 20 at 12:00am | <b>Due</b> May 27 at 11:59pm | 100pts
-                </li>
-            </ul>
-        </div>
-    );
+  return (
+    <div id="wd-assignments">
+      <AssignmentsTopBar /> <br /> <br />
+      <ListGroup className="rounded-0" id="wd-assignment-groups">
+        <ListGroupItem className="wd-assignment-group p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">
+            <BsGripVertical className="me-2 fs-3" /> Assignments <AssignmentGroupCtrlBtns />
+          </div>
+          <ListGroup className="wd-assignments rounded-0">
+            <ListGroupItem className="wd-assignment p-3 ps-1">
+              <div className="d-flex">
+                <div className="text-nowrap">
+                  <BsGripVertical className="me-2 fs-3" /> <MdOutlineAssignment className="me-2 fs-3 text-success" />
+                </div>
+                <div className="flex-fill me-auto">
+                  <Link className="text-decoration-none text-dark" href="/courses/CS1234/assignments/125">
+                    <span className="fw-bold fs-4">A1</span> <br />
+                  </Link>
+                  <span className="fs-6">
+                    <span className="text-danger me-1">Multiple Modules</span> |
+                    <span className="ms-1 text-muted fw-bold">Not available until </span>
+                    <span className="me-1">May 6 at 12:00am</span> |
+                    <span className="ms-1 text-muted fw-bold">Due </span>
+                    <span className="me-1">May 13 at 11:59pm</span> |
+                    <span className="ms-1">100 pts</span>
+                  </span>
+                </div>
+                <div className="text-nowrap"> <AssignmentCtrlBtns /> </div>
+              </div>
+            </ListGroupItem>
+            <ListGroupItem className="wd-assignment p-3 ps-1">
+              <div className="d-flex">
+                <div className="text-nowrap">
+                  <BsGripVertical className="me-2 fs-3" /> <MdOutlineAssignment className="me-2 fs-3 text-success" />
+                </div>
+                <div className="flex-fill me-auto">
+                  <Link className="text-decoration-none text-dark" href="/courses/CS1234/assignments/125">
+                    <span className="fw-bold fs-4">A2</span> <br />
+                  </Link>
+                  <span className="fs-6">
+                    <span className="text-danger me-1">Multiple Modules</span> |
+                    <span className="ms-1 text-muted fw-bold">Not available until </span>
+                    <span className="me-1">May 13 at 12:00am</span> |
+                    <span className="ms-1 text-muted fw-bold">Due </span>
+                    <span className="me-1">May 20 at 11:59pm</span> |
+                    <span className="ms-1">100 pts</span>
+                  </span>
+                </div>
+                <div className="text-nowrap"> <AssignmentCtrlBtns /> </div>
+              </div>
+            </ListGroupItem>
+            <ListGroupItem className="wd-assignment p-3 ps-1">
+              <div className="d-flex">
+                <div className="text-nowrap">
+                  <BsGripVertical className="me-2 fs-3" /> <MdOutlineAssignment className="me-2 fs-3 text-success" />
+                </div>
+                <div className="flex-fill me-auto">
+                  <Link className="text-decoration-none text-dark" href="/courses/CS1234/assignments/125">
+                    <span className="fw-bold fs-4">A3</span> <br />
+                  </Link>
+                  <span className="fs-6">
+                    <span className="text-danger me-1">Multiple Modules</span> |
+                    <span className="ms-1 text-muted fw-bold">Not available until </span>
+                    <span className="me-1">May 20 at 12:00am</span> |
+                    <span className="ms-1 text-muted fw-bold">Due </span>
+                    <span className="me-1">May 27 at 11:59pm</span> |
+                    <span className="ms-1">100 pts</span>
+                  </span>
+                </div>
+                <div className="text-nowrap"> <AssignmentCtrlBtns /> </div>
+              </div>
+            </ListGroupItem>
+          </ListGroup>
+        </ListGroupItem>
+      </ListGroup>
+    </div>
+  );
 }
