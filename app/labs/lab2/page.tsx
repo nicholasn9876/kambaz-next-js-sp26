@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./index.css"
 import Container from "react-bootstrap/Container"
 import ForegroundColors from "./ForegroundColors";
@@ -86,5 +87,6 @@ Here's another paragraph using a different ID and a different look and feel
       <BootstrapTables/>
       <BootstrapLists/> <br/>
       <BootstrapForms/>
-      <BootstrapNavigation/>
+      <BootstrapNavigation/> <br/>
+      <Link href="lab2/tailwind" className="btn btn-primary">Tailwind</Link>
     </Container>);}
