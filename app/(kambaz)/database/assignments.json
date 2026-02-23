@@ -1,0 +1,84 @@
+[
+  { 
+    "_id": "A101", 
+    "title": "Propulsion Assignment", 
+    "course": "RS101",
+    "pts": "100",
+    "due": "2026-02-13T23:59:59",
+    "availFrom": "2026-02-06T00:00:00",
+    "availUntil": "2026-02-13T23:59:59",
+    "description": "Submit your Propulsion Assignment here."
+  },
+  {
+    "_id": "A102", 
+    "title": "Combustion Analysis", 
+    "course": "RS101",
+    "due": "2026-02-20T23:59:59",
+    "availFrom": "2026-02-13T00:00:00",
+    "availUntil": "2026-02-27023:59:59",
+    "description": "Submit your Combustion Analysis here."
+  },
+  {
+    "_id": "A103",
+    "title": "Nozzle Design Project",
+    "course": "RS101",
+    "due": "2026-02-27T23:59:59",
+    "availFrom": "2026-02-20T00:00:00",
+    "availUntil": "2026-02-27T23:59:59",
+    "description": "Submit your Nozzle Design Project here."
+  },
+  { 
+    "_id": "A201", 
+    "title": "Aerodynamics Quiz", 
+    "course": "RS102",
+    "due": "2026-02-13T23:59:59",
+    "availFrom": "2026-02-06T00:00:00",
+    "availUntil": "2026-02-13T23:59:59",
+    "description": "Submit your Aerodynamics Quiz here."
+  },
+  { 
+    "_id": "A202", 
+    "title": "Flow Analysis", 
+    "course": "RS102",
+    "due": "2026-02-20T23:59:59",
+    "availFrom": "2026-02-13T00:00:00",
+    "availUntil": "2026-02-27023:59:59",
+    "description": "Submit your Flow Analysis here."
+  },
+  { 
+    "_id": "A203", 
+    "title": "Heating Analysis", 
+    "course": "RS102",
+    "due": "2026-02-27T23:59:59",
+    "availFrom": "2026-02-20T00:00:00",
+    "availUntil": "2026-02-27T23:59:59",
+    "description": "Submit your Heating Analysis here."
+  },
+  { 
+    "_id": "A301", 
+    "title": "Structural Design Task", 
+    "course": "RS103",
+    "due": "2026-02-13T23:59:59",
+    "availFrom": "2026-02-06T00:00:00",
+    "availUntil": "2026-02-13T23:59:59",
+    "description": "Submit your Structural Design Task here."
+  },
+  { 
+    "_id": "A302", 
+    "title": "Orbital Calculations", 
+    "course": "RS103",
+    "due": "2026-02-20T23:59:59",
+    "availFrom": "2026-02-13T00:00:00",
+    "availUntil": "2026-02-27023:59:59",
+    "description": "Submit your Orbital Calculations here."
+  },
+  { 
+    "_id": "A303", 
+    "title": "Systems Engineering Exam", 
+    "course": "RS103",
+    "due": "2026-02-27T23:59:59",
+    "availFrom": "2026-02-20T00:00:00",
+    "availUntil": "2026-02-27T23:59:59",
+    "description": "Submit your Systems Engineering Exam here."
+  }
+]

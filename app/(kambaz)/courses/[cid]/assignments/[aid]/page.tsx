@@ -1,14 +1,30 @@
+"use client";
 import { Form, FormLabel, FormControl, FormSelect, FormCheck, Row, Col, Button } from "react-bootstrap";
 import Link from "next/link"
+import * as db from "../../../../database";
+import { useParams } from "next/navigation";
+import { redirect } from "next/navigation";
 
 export default function AssignmentEditor() {
+  const { aid } = useParams();
+  const assignments = db.assignments;
+  const assignment = assignments.find((a) => a._id === aid);
+  if (!assignment) {
+    return (<div id="wd-invalid-assignment">Assignment Not Found</div>);
+  }
+  const fmt = Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric"
+  });
   return (
     <div id="wd-assignments-editor">
       <FormLabel htmlFor="wd-assignment-name-field">Assignment Name</FormLabel>
-      <FormControl id="wd-assignment-name-field" defaultValue="A1 - ENV + HTML"/> <br/>
+      <FormControl id="wd-assignment-name-field" defaultValue={assignment?.title}/> <br/>
 
       <FormControl as="textarea" rows={14} id="wd-assignment-description-field" 
-        defaultValue="The assignment is available online. Submit a link to the landing page of your Web application."/> <br/>
+        defaultValue={assignment?.description}/> <br/>
 
       {/* Points */}
       <Row>
@@ -18,7 +34,7 @@ export default function AssignmentEditor() {
           </FormLabel> 
         </Col>
         <Col md={9}>
-          <FormControl id="wd-assignment-points-field" defaultValue="100"/>
+          <FormControl id="wd-assignment-points-field" defaultValue={assignment?.pts}/>
         </Col>
       </Row> <br/>
 
@@ -89,16 +105,16 @@ export default function AssignmentEditor() {
             <FormControl id="wd-assign-to-form" defaultValue="Everyone"/> <br/>
 
             <FormLabel htmlFor="wd-assign-due" className="text-muted fw-bold">Due</FormLabel>
-            <FormControl id="wd-assign-due" defaultValue="May 13, 2024, 11:59pm"/> <br/>
+            <FormControl id="wd-assign-due" defaultValue={fmt.format(new Date(assignment.due))}/> <br/>
 
             <Row>
               <Col xs={6}>
                 <FormLabel htmlFor="wd-assign-avail-from" className="text-muted fw-bold">Available From</FormLabel>
-                <FormControl id="wd-assign-avail-from" defaultValue="May 6, 2024, 12:00am"/> <br/>
+                <FormControl id="wd-assign-avail-from" defaultValue={fmt.format(new Date(assignment.availFrom))}/> <br/>
               </Col>
               <Col xs={6}>
                 <FormLabel htmlFor="wd-assign-until" className="text-muted fw-bold">Until</FormLabel>
-                <FormControl id="wd-assign-until" defaultValue="May 13, 2024, 11:59pm"/> <br/>
+                <FormControl id="wd-assign-until" defaultValue={fmt.format(new Date(assignment.availUntil))}/> <br/>
               </Col>
             </Row>
           </div>
