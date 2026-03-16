@@ -2,8 +2,9 @@ import { Button, FormControl, Row, Col, InputGroup } from "react-bootstrap";
 import InputGroupText from "react-bootstrap/InputGroupText";
 import { CiSearch } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
+import { redirect } from "next/navigation";
 
-export default function AssignmentsTopBar() {
+export default function AssignmentsTopBar({userRole}: {userRole: string}) {
   return (
     <div id="wd-assignments-topbar" className="text-nowrap">
       <Row>
@@ -15,14 +16,15 @@ export default function AssignmentsTopBar() {
               <FormControl className="border-start-0" id="wd-assignment-search-field" placeholder="Search..."/>
           </InputGroup>
         </Col>
+        {(userRole === "FACULTY" || userRole === "ADMIN") && (
         <Col xs={8}>
-          <Button variant="danger" size="lg" className="me-1 float-end" id="wd-add-assigment-btn">
+          <Button variant="danger" size="lg" className="me-1 float-end" id="wd-add-assigment-btn" onClick={() => redirect("./assignments/new")}>
             <FaPlus className="position-relative me-1" style={{bottom: "1px" }}/> Assignment
           </Button>
-          <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-add-assigment-btn">
+          <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-add-assigment-group-btn">
             <FaPlus className="position-relative me-1" style={{bottom: "1px" }}/> Group
           </Button>
-        </Col>
+        </Col>)}
       </Row>
     </div>
   )

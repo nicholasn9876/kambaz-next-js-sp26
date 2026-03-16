@@ -7,7 +7,8 @@
     "due": "2026-02-13T23:59:59",
     "availFrom": "2026-02-06T00:00:00",
     "availUntil": "2026-02-13T23:59:59",
-    "description": "Submit your Propulsion Assignment here."
+    "description": "Submit your Propulsion Assignment here.",
+    "pts": "100"
   },
   {
     "_id": "A102", 
@@ -16,7 +17,8 @@
     "due": "2026-02-20T23:59:59",
     "availFrom": "2026-02-13T00:00:00",
     "availUntil": "2026-02-27023:59:59",
-    "description": "Submit your Combustion Analysis here."
+    "description": "Submit your Combustion Analysis here.",
+    "pts": "100"
   },
   {
     "_id": "A103",
@@ -25,7 +27,8 @@
     "due": "2026-02-27T23:59:59",
     "availFrom": "2026-02-20T00:00:00",
     "availUntil": "2026-02-27T23:59:59",
-    "description": "Submit your Nozzle Design Project here."
+    "description": "Submit your Nozzle Design Project here.",
+    "pts": "100"
   },
   { 
     "_id": "A201", 
@@ -34,7 +37,8 @@
     "due": "2026-02-13T23:59:59",
     "availFrom": "2026-02-06T00:00:00",
     "availUntil": "2026-02-13T23:59:59",
-    "description": "Submit your Aerodynamics Quiz here."
+    "description": "Submit your Aerodynamics Quiz here.",
+    "pts": "100"
   },
   { 
     "_id": "A202", 
@@ -43,7 +47,8 @@
     "due": "2026-02-20T23:59:59",
     "availFrom": "2026-02-13T00:00:00",
     "availUntil": "2026-02-27023:59:59",
-    "description": "Submit your Flow Analysis here."
+    "description": "Submit your Flow Analysis here.",
+    "pts": "100"
   },
   { 
     "_id": "A203", 
@@ -52,7 +57,8 @@
     "due": "2026-02-27T23:59:59",
     "availFrom": "2026-02-20T00:00:00",
     "availUntil": "2026-02-27T23:59:59",
-    "description": "Submit your Heating Analysis here."
+    "description": "Submit your Heating Analysis here.",
+    "pts": "100"
   },
   { 
     "_id": "A301", 
@@ -61,7 +67,8 @@
     "due": "2026-02-13T23:59:59",
     "availFrom": "2026-02-06T00:00:00",
     "availUntil": "2026-02-13T23:59:59",
-    "description": "Submit your Structural Design Task here."
+    "description": "Submit your Structural Design Task here.",
+    "pts": "100"
   },
   { 
     "_id": "A302", 
@@ -70,7 +77,8 @@
     "due": "2026-02-20T23:59:59",
     "availFrom": "2026-02-13T00:00:00",
     "availUntil": "2026-02-27023:59:59",
-    "description": "Submit your Orbital Calculations here."
+    "description": "Submit your Orbital Calculations here.",
+    "pts": "100"
   },
   { 
     "_id": "A303", 
@@ -79,6 +87,7 @@
     "due": "2026-02-27T23:59:59",
     "availFrom": "2026-02-20T00:00:00",
     "availUntil": "2026-02-27T23:59:59",
-    "description": "Submit your Systems Engineering Exam here."
+    "description": "Submit your Systems Engineering Exam here.",
+    "pts": "100"
   }
 ]
