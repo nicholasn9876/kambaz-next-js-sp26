@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = 'force-dynamic'
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -18,7 +18,6 @@ export default function QueryCalculator() {
 
 
  return (
-  <Suspense fallback={<div>Loading...</div>}>
     <div style={{ padding: 40 }}>
       <h1>Calculator – Query Parameters</h1>
 
@@ -34,7 +33,6 @@ export default function QueryCalculator() {
 
       <h2 style={{ color: "green" }}>Sum = {sum}</h2>
     </div>
-   </Suspense>
  );
  
 }
