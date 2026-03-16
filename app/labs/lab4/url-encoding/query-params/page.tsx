@@ -18,7 +18,7 @@ export default function QueryCalculator() {
 
 
  return (
-  <Suspense>
+  <Suspense fallback={<div>Loading...</div>}>
     <div style={{ padding: 40 }}>
       <h1>Calculator – Query Parameters</h1>
 
