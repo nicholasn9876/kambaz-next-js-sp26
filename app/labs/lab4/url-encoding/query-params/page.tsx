@@ -1,11 +1,13 @@
 "use client";
 
-
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 
 export default function QueryCalculator() {
+<Suspense>
  const searchParams = useSearchParams();
+</Suspense>
 
 
  const aRaw = searchParams.get("a") || "0";

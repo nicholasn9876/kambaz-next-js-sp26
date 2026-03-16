@@ -12,8 +12,8 @@ export default function TodoList() {
       <h2>Todo List</h2>
       <ListGroup>
          <TodoForm />
-        {todos.map((todo: any) => (
-          <TodoItem todo={todo} />
+        {todos.map((todo: any, idx) => (
+          <TodoItem key={idx} todo={todo} />
         ))}
       </ListGroup><hr/>
 </div>);}
