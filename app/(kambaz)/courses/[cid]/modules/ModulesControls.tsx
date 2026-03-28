@@ -3,15 +3,22 @@ import { FaPlus } from "react-icons/fa6";
 import { HiNoSymbol } from "react-icons/hi2";
 import ModuleEditor from "./ModuleEditor";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
 
 import GreenCheckmark from "./GreenCheckmark";
-export default function ModulesControls({ moduleName, setModuleName, addModule }:
-{ moduleName: string; setModuleName: (title: string) => void; addModule: () => void; }) {
+export default function ModulesControls({ moduleName, setModuleName, addModule, userRole }:
+{ moduleName: string; setModuleName: (title: string) => void; addModule: () => void; userRole: string }) {
+  const { currentUser } = useSelector((state: RootState) => state.accountReducer);
+  if (!currentUser) {
+    return (<div>Not logged in.</div>)
+  }
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <div id="wd-modules-controls" className="text-nowrap">
+      {(userRole === "ADMIN" || userRole === "FACULTY") && (<span>
       <Button variant="danger" onClick={handleShow} size="lg" className="me-1 float-end" id="wd-add-module-btn">
         <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
         Module
@@ -40,10 +47,11 @@ export default function ModulesControls({ moduleName, setModuleName, addModule }
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
-      <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-view-progress">View Progress</Button>
+      <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-view-progress">View Progress</Button></span>)}
       <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-collapse-all">Collapse All</Button>
+      {(userRole === "ADMIN" || userRole === "FACULTY") && (
       <ModuleEditor show={show} handleClose={handleClose} dialogTitle="Add Module"
-       moduleName={moduleName} setModuleName={setModuleName} addModule={addModule} />
+       moduleName={moduleName} setModuleName={setModuleName} addModule={addModule} />)}
     </div>
   );
 }
