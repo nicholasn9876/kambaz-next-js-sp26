@@ -3,16 +3,10 @@ import { FaPlus } from "react-icons/fa6";
 import { HiNoSymbol } from "react-icons/hi2";
 import ModuleEditor from "./ModuleEditor";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
 
 import GreenCheckmark from "./GreenCheckmark";
 export default function ModulesControls({ moduleName, setModuleName, addModule, userRole }:
 { moduleName: string; setModuleName: (title: string) => void; addModule: () => void; userRole: string }) {
-  const { currentUser } = useSelector((state: RootState) => state.accountReducer);
-  if (!currentUser) {
-    return (<div>Not logged in.</div>)
-  }
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
