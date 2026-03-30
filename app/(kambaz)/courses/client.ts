@@ -12,11 +12,11 @@ export const getEnrollmentsForUser = async (userId: string) => {
   return data;
 }
 export const enroll = async (userId: string, courseId: string) => {
-  const response = await axios.post(`${ENROLLMENTS_API}/${userId}/${courseId}`);
+  const response = await axiosWithCredentials.post(`${ENROLLMENTS_API}/${userId}/${courseId}`);
   return response.data;
 }
 export const unenroll = async (userId: string, courseId: string) => {
-  const response = await axios.delete(`${ENROLLMENTS_API}/${userId}/${courseId}`);
+  const response = await axiosWithCredentials.delete(`${ENROLLMENTS_API}/${userId}/${courseId}`);
   return response.data;
 }
 export const updateModule = async (module: any) => {

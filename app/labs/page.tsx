@@ -31,6 +31,12 @@ export default function labs() {
        <li>
         <Link href="https://github.com/nicholasn9876/kambaz-next-js-sp26" id="wd-github">Github</Link>
        </li>
+       <li>
+        <Link href="https://github.com/nicholasn9876/kambaz-node-server-app" id="wd-github">Server Github</Link>
+       </li>
+       <li>
+        <Link href="https://kambaz-node-server-app-5sw6.onrender.com/" id="wd-github">Server Root</Link>
+       </li>
      </ul>
    </div>
 );}
