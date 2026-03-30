@@ -5,8 +5,9 @@ import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { RootState } from "../../../../store";
 import { useSelector, useDispatch } from "react-redux";
-import { addAssignment, updateAssignment } from "../reducer";
+import { addAssignment, updateAssignment, setAssignments } from "../reducer";
 import { useEffect, useState } from "react";
+import * as client from "../client";
 
 export default function AssignmentEditor() {
   const { currentUser } = useSelector((state: RootState) => state.accountReducer);
@@ -21,6 +22,16 @@ export default function AssignmentEditor() {
   const { aid } = useParams();
   const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
   const dispatch = useDispatch();
+  const onUpdateAssignment = async (assignment: any) => {
+    await client.updateAssignment(assignment);
+    const newAssignments = assignments.map((a: any) => a._id === assignment._id ? assignment : a);
+    dispatch(setAssignments(newAssignments));
+  };
+  const onCreateAssignmentForCourse = async (assignment: any) => {
+    if (!cid) return;
+    const created = await client.createAssignmentForCourse(cid as string, assignment);
+    dispatch(setAssignments([...assignments, created]));
+  };
   const assignment = assignments.find((a) => a._id === aid);
   const [aName, setAName] = useState("");
   const [aDesc, setADesc] = useState("");
@@ -48,9 +59,9 @@ export default function AssignmentEditor() {
       setAAvailUntil(assignment!.availUntil);
     }
   }, [aid])
-  const saveBehavior = () => {
+  const saveBehavior = async () => {
     if (isAdding) {
-      dispatch(addAssignment({
+       const newAssignment = {
         title: aName,
         description: aDesc,
         course: cid,
@@ -58,9 +69,10 @@ export default function AssignmentEditor() {
         due: aDue,
         availFrom: aAvailFrom,
         availUntil: aAvailUntil
-      }))
+      };
+      onCreateAssignmentForCourse(newAssignment);
     } else {
-      dispatch(updateAssignment({
+      const updatedAssignment = {
         ...assignment,
         title: aName,
         description: aDesc,
@@ -69,7 +81,8 @@ export default function AssignmentEditor() {
         due: aDue,
         availFrom: aAvailFrom,
         availUntil: aAvailUntil
-      }))
+      };
+      onUpdateAssignment(updatedAssignment);
     }
     router.push("./")
   }
@@ -176,12 +189,12 @@ export default function AssignmentEditor() {
         </Col>
       </Row> <br />
       <hr />
-        <Button variant="danger" className="me-1 float-end" id="wd-save-assignment-btn" onClick={saveBehavior}>
-          Save
-        </Button>
-        <Button variant="secondary" className="me-1 float-end" id="wd-cancel-assignment-btn" onClick={() => router.push("./")}>
-          Cancel
-        </Button>
+      <Button variant="danger" className="me-1 float-end" id="wd-save-assignment-btn" onClick={saveBehavior}>
+        Save
+      </Button>
+      <Button variant="secondary" className="me-1 float-end" id="wd-cancel-assignment-btn" onClick={() => router.push("./")}>
+        Cancel
+      </Button>
     </div>
   );
 }
