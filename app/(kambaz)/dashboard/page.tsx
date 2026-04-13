@@ -128,12 +128,12 @@ export default function Dashboard() {
                 <CardBody>
                   {(isEnrolled(course._id)) ? (
                     <Button className="btn-danger float-start" onClick={async () => {
-                      await client.unenroll(currentUser._id, course._id);
+                      await client.unenrollFromCourse(currentUser._id, course._id);
                       dispatch(unenroll({ userId: currentUser._id, courseId: course._id }))
                     }}>Unenroll</Button>
                   ) : (
                       <Button className="btn-success float-start" onClick={async () => {
-                        await client.enroll(currentUser._id, course._id);
+                        await client.enrollIntoCourse(currentUser._id, course._id);
                         dispatch(enroll({ userId: currentUser._id, courseId: course._id }))
                       }}>Enroll</Button>
                     )}
